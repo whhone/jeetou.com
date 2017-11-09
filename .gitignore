@@ -1,0 +1,15 @@
+**/__pycache__/*
+**/*.pyc
+**/*.swp
+
+/.idea/
+
+/client/node_modules
+
+# TODO(whhone): auto-build webpack on deployment instead of checking into source control.
+# /client/assets
+
+/client/webpack-stats.json
+/client/npm-debug.log
+
+/static/
