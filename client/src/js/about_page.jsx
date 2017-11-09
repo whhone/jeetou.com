@@ -14,11 +14,16 @@ class AboutPage extends React.Component {
                     </Col>
                     <Col lg={6} md={6} sm={6} xs={12}>
                         <h3>聯絡方法？</h3>
-                        電郵：contact@jeetou.com<br/>
+                        電郵：whhone@gmail.com<br/>
                         Facebook：
                         <a href='https://www.facebook.com/jeetoudo/'
                            target='_blank'>
                            jeetoudo
+                        </a><br/>
+                        Github：
+                        <a href='https://github.com/whhone/jeetou.com'
+                           target='_blank'>
+                           whhone/jeetou.com
                         </a>
                     </Col>
                 </Row>
