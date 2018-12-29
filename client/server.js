@@ -3,10 +3,10 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.local.config');
 
 var host = '127.0.0.1';
-var port = 3000;
+var port = 4200;
 
 // Override the default host:port for serving static files by passing the deired host:port.
-// e.g., run `node server.js 10.0.1.4:3000`
+// e.g., run `node server.js 10.0.1.4:4200`
 if (process.argv.length > 2) {
     hostPort = process.argv[2];
     var arr = hostPort.split(':');
@@ -36,5 +36,5 @@ new WebpackDevServer(webpack(config), {
         console.log(err);
     }
 
-    console.log('Listening at 0.0.0.0:3000');
+    console.log('Listening at 0.0.0.0:4200');
 });
