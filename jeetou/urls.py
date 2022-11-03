@@ -1,4 +1,4 @@
-from django.conf.urls import url, include
+from django.urls import re_path, include
 from rest_framework import routers
 
 from jeetou.api import DramaViewSet, VideoViewSet, ShotViewSet, ShotSearchView
@@ -13,7 +13,7 @@ router.register(r'videos', VideoViewSet)
 router.register(r'shots', ShotViewSet)
 
 urlpatterns = [
-    url(r'^api/search/', ShotSearchView.as_view()),
-    url(r'^api/', include(router.urls)),
-    url(r'^', views.index, name='react'),
+    re_path(r'^api/search/', ShotSearchView.as_view()),
+    re_path(r'^api/', include(router.urls)),
+    re_path(r'^', views.index, name='react'),
 ]
