@@ -3,7 +3,7 @@
 ## Set up
 
 ### Requirements
-* python 3.6+ (virtualenv is recommended)
+* python 3.10
 * Node.js
 
 ### Create the virtual env for django
