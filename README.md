@@ -1,6 +1,6 @@
 # [Jeetou 截圖道](https://jeetou.com)
 
-## Set up
+## Development
 
 ### Requirements
 * python 3.10
@@ -26,18 +26,24 @@ $ cd client && yarn
 $ deactivate
 ```
 
-### Once the database is setup, run the migrations
-```bash
-$ python manage.py migrate
-```
-
-### Import Jeetou test data to local database:
-```bash
-$ ./scripts/import_data.sh
-```
-
 ### Run local server
 ```bash
 $ python manage.py runserver 0.0.0.0:8000
 $ cd client && node server.js
+```
+
+## Deployment
+
+### Run production server
+```bash
+$ python manage.py collectstatic
+$ gunicorn main.wsgi_prod --log-file -
+```
+### Docker
+```bash
+# Build the image
+docker build -t jeetou
+
+# Run the image
+docker run -it --rm -p 0.0.0.0:8000:8000/tcp --name my-running-app jeetou
 ```
