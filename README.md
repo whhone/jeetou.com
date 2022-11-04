@@ -16,6 +16,7 @@ $ source env/bin/activate
 To learn more about venv, see https://docs.python.org/3/tutorial/venv.html.
 
 ### Install Required Packages
+
 ```bash
 $ pip install -r requirements.txt
 $ cd client && yarn
@@ -39,11 +40,8 @@ $ cd client && node server.js
 $ python manage.py collectstatic
 $ gunicorn main.wsgi_prod --log-file -
 ```
+
 ### Docker
 ```bash
-# Build the image
-docker build -t jeetou
-
-# Run the image
-docker run -it --rm -p 0.0.0.0:8000:8000/tcp --name my-running-app jeetou
+docker compose up
 ```
