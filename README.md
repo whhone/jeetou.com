@@ -42,7 +42,7 @@ $ python manage.py collectstatic
 $ gunicorn main.wsgi_prod --log-file -
 ```
 
-### Docker
+### Docker Compose
 ```bash
 $ docker compose up
 ```
