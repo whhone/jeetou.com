@@ -19,7 +19,7 @@ To learn more about venv, see https://docs.python.org/3/tutorial/venv.html.
 
 ```bash
 $ pip install -r requirements.txt
-$ cd client && yarn
+$ cd client && yarnpkg
 ```
 
 ### Leaving virtual env
@@ -37,11 +37,12 @@ $ cd client && node server.js
 
 ### Run production server
 ```bash
+$ ./scripts/build_webpack.sh
 $ python manage.py collectstatic
 $ gunicorn main.wsgi_prod --log-file -
 ```
 
 ### Docker
 ```bash
-docker compose up
+$ docker compose up
 ```
