@@ -12,4 +12,4 @@ RUN cd client && yarnpkg && cd ..
 RUN scripts/build_webpack.sh
 
 RUN python manage.py collectstatic
-CMD [ "gunicorn", "main.wsgi_prod", "-b", "0.0.0.0:8000", "--log-file", "-" ]
+CMD [ "gunicorn", "main.wsgi_prod", "-b", "0.0.0.0:8080", "--log-file", "-" ]
