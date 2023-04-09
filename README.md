@@ -9,8 +9,8 @@
 ### Create the virtual env for django
 
 ```bash
-$ python3 -m venv env
-$ source env/bin/activate
+$ python3 -m venv venv
+$ source venv/bin/activate
 ```
 
 To learn more about venv, see https://docs.python.org/3/tutorial/venv.html.
