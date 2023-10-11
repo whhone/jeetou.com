@@ -27,7 +27,7 @@ class Shot(models.Model):
         return self.get_image_url()
 
     def get_image_url(self):
-        return "https://storage.cloud.google.com/jeetou-images/p/{}/{}.jpg".format(self.video_id, self.hashcode)
+        return "https://storage.googleapis.com/jeetou-images/p/{}/{}.jpg".format(self.video_id, self.hashcode)
 
     def get_next_shot_id(self):
         try:
