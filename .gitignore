@@ -3,7 +3,7 @@
 **/*.swp
 
 # Python virtual environment
-/env/
+/venv/
 
 /.idea/
 

@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'webpack_loader',
+    'corsheaders',
 
     # My apps
     'jeetou.apps.JeetouConfig',
@@ -92,6 +93,7 @@ MIDDLEWARE = [
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'
