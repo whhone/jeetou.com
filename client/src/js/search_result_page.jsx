@@ -115,4 +115,4 @@ SearchResultPage.propTypes = {
     query: React.PropTypes.string,
 };
 
-module.exports = SearchResultPage;
+export default SearchResultPage;

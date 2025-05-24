@@ -17,4 +17,4 @@ class Explore extends React.Component {
     }
 };
 
-module.exports = Explore;
+export default Explore;

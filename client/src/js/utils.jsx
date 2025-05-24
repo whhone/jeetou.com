@@ -19,4 +19,4 @@ function safeAPICallback(apiStr, callback) {
         });
 }
 
-module.exports = safeAPICallback;
+export default safeAPICallback;

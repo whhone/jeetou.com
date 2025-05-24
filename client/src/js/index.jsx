@@ -23,4 +23,4 @@ render((
             <Route path='*' component={Http404} />
         </Route>
     </Router>
-), document.getElementById('react-app'));
+), document.getElementById('root'));

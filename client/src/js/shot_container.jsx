@@ -103,4 +103,4 @@ ShotContainer.propTypes = {
     shot_id: React.PropTypes.number,
 };
 
-module.exports = ShotContainer;
+export default ShotContainer;

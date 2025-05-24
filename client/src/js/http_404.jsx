@@ -17,4 +17,4 @@ class Http404 extends React.Component {
     }
 };
 
-module.exports = Http404;
+export default Http404;

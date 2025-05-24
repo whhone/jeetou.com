@@ -32,4 +32,4 @@ class AboutPage extends React.Component {
     }
 };
 
-module.exports = AboutPage;
+export default AboutPage;

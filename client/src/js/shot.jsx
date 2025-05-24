@@ -18,4 +18,4 @@ class Shot extends React.Component {
     }
 };
 
-module.exports = Shot;
+export default Shot;

@@ -36,4 +36,4 @@ class HomeForm extends React.Component {
     }
 };
 
-module.exports = HomeForm;
+export default HomeForm;
