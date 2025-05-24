@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import '../bootstrap.min.css';
 
 import AboutPage from './about_page';
 import App from './app';

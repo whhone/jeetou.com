@@ -90,7 +90,7 @@ class ShotContainer extends React.Component {
     updateShot(shot_id) {
         var self = this;
         safeAPICallback(
-            `/api/shots/${shot_id}/`,
+            `https://jeetou.com/api/shots/${shot_id}/`,
             function(data) {
                 browserHistory.push(`/shot/${shot_id}/`);
                 self.setState({'shot': data});

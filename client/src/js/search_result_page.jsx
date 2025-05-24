@@ -101,7 +101,7 @@ class SearchResultPage extends React.Component {
     handleSearch(query) {
         var self = this;
         safeAPICallback(
-            `/api/search/?q=${query}`,
+            `https://jeetou.com/api/search/?q=${query}`,
             function(data) {
                 self.setState({
                     'search_result': data,
