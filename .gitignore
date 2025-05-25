@@ -3,13 +3,11 @@
 **/*.swp
 
 # Python virtual environment
-/venv/
+**/venv/
 
-/.idea/
+/frontend/node_modules
+/frontend/assets
+/frontend/webpack-stats.json
+/frontend/npm-debug.log
 
-/client/node_modules
-/client/assets
-/client/webpack-stats.json
-/client/npm-debug.log
-
-/static/
+/backend/static/
