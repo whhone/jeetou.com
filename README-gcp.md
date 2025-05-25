@@ -22,7 +22,8 @@ The Cloud Run service is deployed when pushing new code.
 
 ### Manual Cloud Run Deployment
 
-```
+```sh
+# This will upload the source to Google cloud and build there.
 gcloud run deploy jeetou-api --source . --region=us-west1
 ```
 
