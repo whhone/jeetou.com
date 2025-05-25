@@ -18,7 +18,7 @@ function HomeForm() {
         </Row>
         <Row>
           <Col>
-            <Button type='submit'>搜圖</Button>
+            <Button variant="secondary" type='submit'>搜圖</Button>
           </Col>
         </Row>
       </Form>

@@ -21,28 +21,32 @@ function App() {
 
   return (
     <div>
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Container fluid>
-          <Navbar.Brand as={Link} to='/'>截圖道</Navbar.Brand>
+      <Navbar expand="lg" bg="dark" data-bs-theme="dark">
+        <Container>
+          <Navbar.Brand href='/'>截圖道</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to='/about'>關於</Nav.Link>
+              <Nav.Link href='/about'>關於</Nav.Link>
             </Nav>
-            <Form className="d-flex" onSubmit={handleSearch}>
-              <FormControl
-                type='text'
-                placeholder='對白搜尋'
-                value={query}
-                onChange={handleQueryChange}
-                className="me-2"
-              />
-              <Button variant="outline-light" onClick={handleSearch}>搜圖</Button>
+            <Form onSubmit={handleSearch}>
+              <Form.Group className="d-flex gap-2">
+                <Form.Control
+                  type='text'
+                  placeholder='對白搜尋'
+                  value={query}
+                  onChange={handleQueryChange}
+                  className="w-auto"
+                />
+                <Button className="flex-fill" type="submit" variant="secondary">搜圖</Button>
+              </Form.Group>
             </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Outlet context={{query}} />
+      <Container className="py-3">
+        <Outlet context={{query}} />
+      </Container>
     </div>
   );
 }
