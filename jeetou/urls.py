@@ -15,5 +15,4 @@ router.register(r'shots', ShotViewSet)
 urlpatterns = [
     re_path(r'^api/search/', ShotSearchView.as_view()),
     re_path(r'^api/', include(router.urls)),
-    re_path(r'^', views.index, name='react'),
 ]

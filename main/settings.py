@@ -25,27 +25,6 @@ SECRET_KEY = 'f&5++)-=rdw#q&mw$en*y3793c0#y41+geic^7p9ri_ulep-vr'
 # Disable DEBUG mode on production
 DEBUG = True
 
-# BEGIN - django-webpack-loader
-# https://github.com/owais/django-webpack-loader
-STATICFILES_DIRS = (
-    # We do this so that django's collectstatic copies or our bundles to the STATIC_ROOT
-    # or syncs them to whatever storage we use.
-    os.path.join(PROJECT_ROOT, 'client', 'assets'),
-)
-
-# for dev environment
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'CACHE': True,
-        'BUNDLE_DIR_NAME': 'bundles/',
-        'STATS_FILE': os.path.join(PROJECT_ROOT, 'client', 'webpack-stats.json'),
-        'POLL_INTERVAL': 0.1,
-        'TIMEOUT': None,
-        'IGNORE': ['.+\.hot-update.js', '.+\.map'],
-    }
-}
-# END - django-webpack-loader
-
 # BEGIN - rest_framework
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -74,7 +53,6 @@ INSTALLED_APPS = [
     # Third party apps
     'django_extensions',
     'rest_framework',
-    'webpack_loader',
     'corsheaders',
 
     # My apps
