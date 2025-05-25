@@ -4,14 +4,14 @@
 
 ```sh
 # build the docker image
-docker build -t jeetou .
+docker build -t jeetou-api .
 
 # run the docker image
 # --rm: automatically remove the container when it exits
-docker run --rm -p 8080:8080 jeetou
+docker run --rm -p 8080:8080 jeetou-api
 
 # build and run in one command
-docker build -t jeetou . && docker run --rm -p 8080:8080 jeetou
+docker build -t jeetou-api . && docker run --rm -p 8080:8080 jeetou-api
 ```
 
 Then, navigate to the "Web Preview".
@@ -23,7 +23,7 @@ The Cloud Run service is deployed when pushing new code.
 ### Manual Cloud Run Deployment
 
 ```
-gcloud run deploy jeetou --source . --region=us-west1
+gcloud run deploy jeetou-api --source . --region=us-west1
 ```
 
 ### Manual Deployment with cloudbuild.yaml
