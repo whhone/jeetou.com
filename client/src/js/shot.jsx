@@ -1,21 +1,22 @@
 import React from 'react';
-import {Button, Grid, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
+import {useParams} from 'react-router-dom';
 
 import ShotContainer from './shot_container';
 
-class Shot extends React.Component {
-    render() {
-        var shot_id = parseInt(this.props.params.shot_id);
-        return (
-            <Grid>
-                <Row>
-                    <Col>
-                        <ShotContainer shot_id={shot_id} />
-                    </Col>
-                </Row>
-            </Grid>
-        );
-    }
-};
+function Shot() {
+  const { shot_id } = useParams();
+  const shotId = parseInt(shot_id);
+
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <ShotContainer shot_id={shotId} />
+        </Col>
+      </Row>
+    </Container>
+  );
+}
 
 export default Shot;

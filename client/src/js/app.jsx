@@ -1,64 +1,50 @@
 import React from 'react';
-import {Nav, Navbar, NavItem, FormGroup, FormControl, Button} from 'react-bootstrap';
-import {Link, browserHistory} from 'react-router';
-import {LinkContainer} from 'react-router-bootstrap';
+import {Nav, Navbar, Form, FormControl, Button, Container} from 'react-bootstrap';
+import {Link, Outlet, useNavigate, useLocation} from 'react-router-dom';
 import safeAPICallback from './utils';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            query: this.props.location.query.q,
-        };
-        this.handleQueryChange = this.handleQueryChange.bind(this);
-        this.handleSearch = this.handleSearch.bind(this);
-    }
+function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [query, setQuery] = React.useState(
+    new URLSearchParams(location.search).get('q') || ''
+  );
 
-    render() {
-        return (
-            <div>
-                <Navbar inverse>
-                    <Navbar.Header>
-                        <Navbar.Brand>
-                            <Link to='/'>截圖道</Link>
-                        </Navbar.Brand>
-                    </Navbar.Header>
+  const handleQueryChange = (event) => {
+    setQuery(event.target.value);
+  };
 
-                    <Navbar.Collapse>
-                        <Nav>
-                            <LinkContainer to={{pathname: '/about/'}}>
-                                <NavItem>關於</NavItem>
-                            </LinkContainer>
-                        </Nav>
+  const handleSearch = (event) => {
+    event.preventDefault();
+    navigate(`/search?q=${query}`);
+  };
 
-                        <Navbar.Form pullRight>
-                            <form onSubmit={this.handleSearch}>
-                                <FormGroup>
-                                    <FormControl
-                                        type='text'
-                                        placeholder='對白搜尋'
-                                        value={this.state.query}
-                                        onChange={this.handleQueryChange}/>
-                                    {' '}
-                                    <Button onClick={this.handleSearch}>搜圖</Button>
-                                </FormGroup>
-                            </form>
-                        </Navbar.Form>
-                    </Navbar.Collapse>
-                </Navbar>
-                {React.cloneElement(this.props.children, {query: this.state.query})}
-            </div>
-        );
-    }
-
-    handleQueryChange(event) {
-        this.setState({'query': event.target.value});
-    }
-
-    handleSearch(event) {
-        event.preventDefault();
-        browserHistory.push(`/search/?q=${this.state.query}`);
-    }
-};
+  return (
+    <div>
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Container fluid>
+          <Navbar.Brand as={Link} to='/'>截圖道</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to='/about'>關於</Nav.Link>
+            </Nav>
+            <Form className="d-flex" onSubmit={handleSearch}>
+              <FormControl
+                type='text'
+                placeholder='對白搜尋'
+                value={query}
+                onChange={handleQueryChange}
+                className="me-2"
+              />
+              <Button variant="outline-light" onClick={handleSearch}>搜圖</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Outlet context={{query}} />
+    </div>
+  );
+}
 
 export default App;

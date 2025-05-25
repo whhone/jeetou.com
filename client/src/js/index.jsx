@@ -1,6 +1,6 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import {createRoot} from 'react-dom/client';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import '../bootstrap.min.css';
 
 import AboutPage from './about_page';
@@ -11,17 +11,18 @@ import SearchResultPage from './search_result_page';
 import Shot from './shot';
 import Http404 from './http_404';
 
-render((
-    <Router history={browserHistory}>
-        <Route path='/' component={App}>
-            <IndexRoute component={Home} />
-            <Route path='explore/' component={Explore} />
-            <Route path='about/' component={AboutPage} />
-            <Route path='search/' component={SearchResultPage} />
-            <Route path='shot/:shot_id/' component={Shot} />
-
-            {/* Go to the 404 not found page for everything else. */}
-            <Route path='*' component={Http404} />
-        </Route>
-    </Router>
-), document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<App />}>
+        <Route index element={<Home />} />
+        <Route path='explore' element={<Explore />} />
+        <Route path='about' element={<AboutPage />} />
+        <Route path='search' element={<SearchResultPage />} />
+        <Route path='shot/:shot_id' element={<Shot />} />
+        <Route path='*' element={<Http404 />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);

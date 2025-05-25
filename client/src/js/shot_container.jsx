@@ -1,106 +1,76 @@
 import React from 'react';
-import {Panel, Thumbnail, Grid, Row, Col, Pager, Well} from 'react-bootstrap';
-import {browserHistory} from 'react-router';
+import {Card, Image, Container, Row, Col, Pagination, Alert} from 'react-bootstrap';
+import {useNavigate} from 'react-router-dom';
 import safeAPICallback from './utils';
 
-class ShotContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            shot: null,
-        };
-    }
+function ShotContainer({shot_id}) {
+  const navigate = useNavigate();
+  const [shot, setShot] = React.useState(null);
 
-    render() {
-        var shotTitle = '';
-        var url = '';
-        var videoName = '';
-        var previousShotID = null;
-        var nextShotID = null;
+  React.useEffect(() => {
+    updateShot(shot_id);
+  }, [shot_id]);
 
-        if (this.state.shot) {
-            shotTitle = this.state.shot.text + '.jpg';
-            url = this.state.shot.get_image_url;
-            videoName = this.state.shot.get_video_name;
-            previousShotID = this.state.shot.get_previous_shot_id;
-            nextShotID = this.state.shot.get_next_shot_id;
-        }
+  const updateShot = (shotId) => {
+    safeAPICallback(
+      `https://jeetou.com/api/shots/${shotId}/`,
+      function(data) {
+        navigate(`/shot/${shotId}/`);
+        setShot(data);
+      }
+    );
+  };
 
-        return (
-            <Grid>
+  const shotTitle = shot ? shot.text + '.jpg' : '';
+  const url = shot ? shot.get_image_url : '';
+  const videoName = shot ? shot.get_video_name : '';
+  const previousShotID = shot ? shot.get_previous_shot_id : null;
+  const nextShotID = shot ? shot.get_next_shot_id : null;
 
-                <Row>
-                    <Col>
-                        <Well bsSize='small'>
-                            <center>
-                                <h3>
-                                    {shotTitle}
-                                </h3>
-                            </center>
-                        </Well>
-                    </Col>
-                </Row>
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <Alert variant="info" className="text-center">
+            <h3>{shotTitle}</h3>
+          </Alert>
+        </Col>
+      </Row>
 
-                <Row>
-                    <Col>
-                        <Thumbnail src={url} />
-                    </Col>
-                </Row>
+      <Row>
+        <Col>
+          <Card>
+            <Card.Body className="text-center">
+              <Image src={url} fluid />
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
 
-                <Row>
-                    <Col>
-                        <Pager>
-                            <Pager.Item
-                                onClick={()=>this.updateShot(previousShotID)}
-                                disabled={previousShotID === null}>
-                                &larr; 上一張
-                            </Pager.Item>
-                            {' '}
-                            <Pager.Item
-                                onClick={()=>this.updateShot(nextShotID)}
-                                disabled={nextShotID === null}>
-                                下一張 &rarr;
-                            </Pager.Item>
-                        </Pager>
-                    </Col>
-                </Row>
+      <Row className="mt-3">
+        <Col>
+          <Pagination className="justify-content-center">
+            <Pagination.Prev
+              onClick={() => updateShot(previousShotID)}
+              disabled={previousShotID === null}>
+              上一張
+            </Pagination.Prev>
+            <Pagination.Next
+              onClick={() => updateShot(nextShotID)}
+              disabled={nextShotID === null}>
+              下一張
+            </Pagination.Next>
+          </Pagination>
+        </Col>
+      </Row>
 
-                <Row>
-                    <Col>
-                        <center>
-                            出處：{videoName}
-                        </center>
-                    </Col>
-                </Row>
-
-            </Grid>
-        );
-    }
-
-    /**
-     * Update shot and video after the component is rendered.
-     */
-    componentDidMount() {
-        this.updateShot(this.props.shot_id);
-    }
-
-    /**
-     * Makes an api call to fetch search result and updates the state.
-     */
-    updateShot(shot_id) {
-        var self = this;
-        safeAPICallback(
-            `https://jeetou.com/api/shots/${shot_id}/`,
-            function(data) {
-                browserHistory.push(`/shot/${shot_id}/`);
-                self.setState({'shot': data});
-            }
-        );
-    }
-};
-
-ShotContainer.propTypes = {
-    shot_id: React.PropTypes.number,
-};
+      <Row>
+        <Col className="text-center">
+          出處：{videoName}
+        </Col>
+      </Row>
+    </Container>
+  );
+}
 
 export default ShotContainer;
