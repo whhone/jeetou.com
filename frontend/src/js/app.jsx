@@ -36,7 +36,14 @@ function App() {
                 onChange={handleQueryChange}
                 className="w-auto"
               />
-              <Button className="flex-fill" type="submit" variant="secondary">搜圖</Button>
+              <Button
+                className="flex-fill"
+                type="submit"
+                variant="secondary"
+                disabled={!query} // Disable button if query is empty
+              >
+              搜圖
+              </Button>
             </Form.Group>
           </Form>
         </Container>
