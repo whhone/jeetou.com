@@ -24,24 +24,21 @@ function App() {
       <Navbar expand="lg" bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href='/'>截圖道</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href='/about'>關於</Nav.Link>
-            </Nav>
-            <Form onSubmit={handleSearch}>
-              <Form.Group className="d-flex gap-2">
-                <Form.Control
-                  type='text'
-                  placeholder='對白搜尋'
-                  value={query}
-                  onChange={handleQueryChange}
-                  className="w-auto"
-                />
-                <Button className="flex-fill" type="submit" variant="secondary">搜圖</Button>
-              </Form.Group>
-            </Form>
-          </Navbar.Collapse>
+          <Nav className="me-auto">
+            <Nav.Link href='/about'>關於</Nav.Link>
+          </Nav>
+          <Form onSubmit={handleSearch}>
+            <Form.Group className="d-flex gap-2">
+              <Form.Control
+                type='text'
+                placeholder='對白搜尋'
+                value={query}
+                onChange={handleQueryChange}
+                className="w-auto"
+              />
+              <Button className="flex-fill" type="submit" variant="secondary">搜圖</Button>
+            </Form.Group>
+          </Form>
         </Container>
       </Navbar>
       <Container className="py-3">
