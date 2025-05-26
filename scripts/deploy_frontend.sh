@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 cd "$(dirname "$0")"/../frontend
 
 OUTPUT_DIR="assets/dist"
