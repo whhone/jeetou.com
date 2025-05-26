@@ -29,46 +29,32 @@ function ShotContainer({shot_id}) {
 
   return (
     <Container>
-      <Row>
-        <Col>
-          <Alert variant="info" className="text-center">
-            <h3>{shotTitle}</h3>
-          </Alert>
-        </Col>
-      </Row>
+      <Alert variant="info" className="text-center">
+        <h3>{shotTitle}</h3>
+      </Alert>
 
-      <Row>
-        <Col>
-          <Card>
-            <Card.Body className="text-center">
-              <Image src={url} fluid />
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      <Card>
+        <Card.Body className="text-center">
+          <Image src={url} fluid />
+        </Card.Body>
+      </Card>
 
-      <Row className="mt-3">
-        <Col>
-          <Pagination className="justify-content-center">
-            <Pagination.Prev
-              onClick={() => updateShot(previousShotID)}
-              disabled={previousShotID === null}>
-              上一張
-            </Pagination.Prev>
-            <Pagination.Next
-              onClick={() => updateShot(nextShotID)}
-              disabled={nextShotID === null}>
-              下一張
-            </Pagination.Next>
-          </Pagination>
-        </Col>
-      </Row>
+      <Pagination className="justify-content-center mt-3">
+        <Pagination.Prev
+          onClick={() => updateShot(previousShotID)}
+          disabled={previousShotID === null}>
+          上一張
+        </Pagination.Prev>
+        <Pagination.Next
+          onClick={() => updateShot(nextShotID)}
+          disabled={nextShotID === null}>
+          下一張
+        </Pagination.Next>
+      </Pagination>
 
-      <Row>
-        <Col className="text-center">
-          出處：{videoName}
-        </Col>
-      </Row>
+      <Container className="text-center">
+        出處：{videoName}
+      </Container>
     </Container>
   );
 }
