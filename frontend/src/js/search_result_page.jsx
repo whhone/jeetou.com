@@ -28,9 +28,7 @@ function SearchResultPage() {
       <div key={entry.id} className="mb-3" style={{width: '48%', display: 'inline-block', marginRight: '2%'}}>
         <Link to={`/shot/${entry.id}`}>
           <Card>
-            <Card.Body>
-              <Image src={entry.get_image_url} fluid />
-            </Card.Body>
+            <Card.Img src={entry.get_image_url} />
           </Card>
         </Link>
       </div>

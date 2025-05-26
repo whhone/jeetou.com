@@ -30,13 +30,11 @@ function ShotContainer({shot_id}) {
   return (
     <Container>
       <Alert variant="info" className="text-center">
-        <h3>{shotTitle}</h3>
+        <h5>{shotTitle}</h5>
       </Alert>
 
       <Card>
-        <Card.Body className="text-center">
-          <Image src={url} fluid />
-        </Card.Body>
+        <Card.Img src={url} />
       </Card>
 
       <Pagination className="justify-content-center mt-3">
