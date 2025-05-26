@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Image, Container, Row, Col, Pagination, Alert} from 'react-bootstrap';
+import {Card, Image, Container, Pagination, Alert} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import safeAPICallback from './utils';
 

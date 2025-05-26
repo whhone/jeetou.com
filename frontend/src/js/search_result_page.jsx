@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Card, Image, Row, Col, Alert} from 'react-bootstrap';
+import {Container, Card, Image, Alert} from 'react-bootstrap';
 import {Link, useOutletContext, useSearchParams} from 'react-router-dom';
 import safeAPICallback from './utils';
 
@@ -23,9 +23,9 @@ function SearchResultPage() {
     );
   };
 
-  const renderCol = (entry) => {
+  const renderCard = (entry) => {
     return (
-      <Col lg={6} md={6} xs={12} key={entry.id} className="mb-3">
+      <div key={entry.id} className="mb-3" style={{width: '48%', display: 'inline-block', marginRight: '2%'}}>
         <Link to={`/shot/${entry.id}`}>
           <Card>
             <Card.Body>
@@ -33,7 +33,7 @@ function SearchResultPage() {
             </Card.Body>
           </Card>
         </Link>
-      </Col>
+      </div>
     );
   };
 
@@ -50,23 +50,9 @@ function SearchResultPage() {
           搵到 <b>{searchResult.count}</b> 張關於 <b>{query}</b> 嘅截圖
         </div>
       );
-      for (let i = 0; i < searchResults.length; i += 2) {
-        const entry1 = searchResults[i];
-        if (i + 1 < searchResults.length) {
-          const entry2 = searchResults[i + 1];
-          results.push(
-            <Row key={i}>
-              {renderCol(entry1)}
-              {renderCol(entry2)}
-            </Row>
-          );
-        } else {
-          results.push(
-            <Row key={i}>
-              {renderCol(entry1)}
-            </Row>
-          );
-        }
+      for (let i = 0; i < searchResults.length; i++) {
+        const entry = searchResults[i];
+        results.push(renderCard(entry));
       }
     } else {
       prompt = (
@@ -82,7 +68,9 @@ function SearchResultPage() {
       <Alert variant="info" className="text-center">
         {prompt}
       </Alert>
-      {results}
+      <div>
+        {results}
+      </div>
     </Container>
   );
 }
