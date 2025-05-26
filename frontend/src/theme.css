@@ -1,0 +1,28 @@
+:root {
+  --bg-primary: #212529;
+  --bg-secondary: #343a40;
+  --text-primary: #ffffff;
+  --text-secondary: #adb5bd;
+  --border-color: #495057;
+  --shadow: rgba(255, 255, 255, 0.125);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: 0 0.125rem 0.25rem var(--shadow);
+}
+
+.card-body {
+  color: var(--text-primary);
+}
+
+.text-muted {
+  color: var(--text-secondary) !important;
+}
