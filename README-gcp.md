@@ -1,6 +1,6 @@
 # Jeetou on Google Cloud Platform
 
-## Local Testing in Cloud Shell
+## Local Testing
 
 ```sh
 # build the docker image
@@ -13,8 +13,6 @@ docker run --rm -p 8080:8080 jeetou-api
 # build and run in one command
 docker build -t jeetou-api . && docker run --rm -p 8080:8080 jeetou-api
 ```
-
-Then, navigate to the "Web Preview".
 
 ## Cloud Run Deployment
 
