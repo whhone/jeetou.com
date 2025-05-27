@@ -154,12 +154,13 @@ CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     "https://jeetou.com",
     "https://jeetou.chunlaw.io",
-    "http://localhost:8080",
-    "http://127.0.0.1:8080"
 ]
 
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    # For subnet 192.168.x.x/16.
+    # for local server.
+    r"^http://127\.0\.0\.1:\d+$",
+    r"^http://localhost:\d+$",
+    # for subnet 192.168.x.x/16.
     r"^http://192\.168\.\d+\.\d+:\d+$",
 ]
