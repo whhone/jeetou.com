@@ -1,4 +1,4 @@
-const apiBackend = "https://api.jeetou.com/";
+const apiBackend = import.meta.env.JEETOU_API_BACKEND || "https://api.jeetou.com/";
 
 function safeAPICallback(apiStr, callback) {
   // Call the 'callback' function when the API call succeeds. Otherwise fails gracefully by

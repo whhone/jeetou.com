@@ -18,12 +18,16 @@ cd frontend && deno install
 ```
 
 ### Run local server
+
 ```bash
 # backend
 uv run manage.py runserver 0.0.0.0:8080
 
-# frontend
+# frontend (with api.jeetou.com as backend)
 cd frontend && deno run dev
+
+# frontend (with a custom backend)
+cd frontend && JEETOU_API_BACKEND=http://localhost:8080 deno run dev
 ```
 
 ## Deployment
