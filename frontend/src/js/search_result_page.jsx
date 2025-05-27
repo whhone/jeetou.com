@@ -25,7 +25,9 @@ function SearchResultPage() {
 
   const renderCard = (entry) => {
     return (
-      <div key={entry.id} className="mb-3" style={{width: '48%', display: 'inline-block', marginRight: '2%'}}>
+      <div key={entry.id}
+           className="mb-3 mx-auto"
+           style={{width: '49%', display: 'inline-block'}}>
         <Link to={`/shot/${entry.id}`}>
           <Card>
             <Card.Img src={entry.get_image_url} />
@@ -66,7 +68,7 @@ function SearchResultPage() {
       <Alert variant="info" className="text-center">
         {prompt}
       </Alert>
-      <div>
+      <div style={{display: 'flex', flexWrap: 'wrap', gap: '1%'}}>
         {results}
       </div>
     </Container>
