@@ -16,7 +16,7 @@ function SearchResultPage() {
 
   const handleSearch = (searchQuery) => {
     safeAPICallback(
-      `https://api.jeetou.com/api/search/?q=${searchQuery}`,
+      `/api/search/?q=${searchQuery}`,
       function(data) {
         setSearchResult(data);
       }

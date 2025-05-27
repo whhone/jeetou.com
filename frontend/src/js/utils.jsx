@@ -1,7 +1,9 @@
+const apiBackend = "https://api.jeetou.com/";
+
 function safeAPICallback(apiStr, callback) {
   // Call the 'callback' function when the API call succeeds. Otherwise fails gracefully by
   // printing out the error(s).
-  fetch(apiStr)
+  fetch(apiBackend + apiStr)
     .then(
       function(response) {
         if (response.status !== 200) {

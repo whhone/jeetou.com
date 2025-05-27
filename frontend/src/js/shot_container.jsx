@@ -13,7 +13,7 @@ function ShotContainer({shot_id}) {
 
   const updateShot = (shotId) => {
     safeAPICallback(
-      `https://api.jeetou.com/api/shots/${shotId}/`,
+      `/api/shots/${shotId}/`,
       function(data) {
         navigate(`/shot/${shotId}/`);
         setShot(data);
