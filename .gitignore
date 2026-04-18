@@ -9,5 +9,7 @@
 /frontend/assets
 /frontend/webpack-stats.json
 /frontend/npm-debug.log
+/frontend/.wrangler
+/frontend/deno.lock
 
 /backend/static/

@@ -37,6 +37,8 @@ cd frontend && JEETOU_API_BACKEND=http://localhost:8080 deno run dev
 ```bash
 # frontend
 deno run build
+wrangler dev --ip=0.0.0.0     # test locally
+wrangler deploy               # deploy to Cloudflare
 
 # backend
 uv run manage.py collectstatic
